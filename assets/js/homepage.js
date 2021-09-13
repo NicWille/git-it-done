@@ -1,4 +1,11 @@
-let getUserRepos = function() {
-    fetch("https://api.github.com/users/octocat/repos")
+let getUserRepos = function(user) {
+
+    let apiUrl = "https://api.github.com/users/" + user + "/repos"
+
+    fetch(apiUrl).then(function(response) {
+        response.json().then(function(data) {
+            console.log(data)
+        })
+    })
 }
-getUserRepos()
+getUserRepos("NicWille")

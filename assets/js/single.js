@@ -14,10 +14,10 @@ function getRepoName() {
     } else {
         document.location.replace("./index.html")
     }
-    
 }
 
 function getRepoIssues(repo) {
+
     let apiUrl = "https://api.github.com/repos/" + repo + "/issues?direction=asc"
     fetch(apiUrl).then((res)=>{
         if(res.ok) {
@@ -60,7 +60,6 @@ function displayIssues(issues) {
             typeEl.textContent = "(Issue)"
         }
         issueEl.appendChild(typeEl)
-
         issueContainerEl.appendChild(issueEl)
     }
     return issueContainerEl
@@ -73,9 +72,7 @@ function displayWarning(repo) {
     linkEl.textContent = "See More Issues on GitHub.com";
     linkEl.setAttribute("href", "https://github.com/" + repo + "/issues");
     linkEl.setAttribute("target", "_blank");
-
     limitWarningEl.appendChild(linkEl);
   };
-
 
 getRepoName()
